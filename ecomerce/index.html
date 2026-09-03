@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores do Ceará | Produtos Regionais</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ceara: {
+              50: '#fff8ed',
+              100: '#ffefd1',
+              200: '#ffd99f',
+              300: '#ffc066',
+              400: '#f99b32',
+              500: '#e97916',
+              600: '#cc5910',
+              700: '#a94010',
+              800: '#883512',
+              900: '#702e12'
+            },
+            sertao: '#1f6b45'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .hero-pattern {
+      background:
+        linear-gradient(90deg, rgba(31,107,69,.96), rgba(31,107,69,.72)),
+        url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1800&q=80')
+        center/cover;
+    }
+
+    .product-card {
+      transition: all .25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.10);
+    }
+  </style>
+
+</head>
+
+<body class="bg-stone-50 text-stone-800">
+
+<!-- TOPO -->
+
+<div class="bg-sertao text-white text-center text-sm py-2">
+  🌵 Frete especial para todo o Ceará • Produtos selecionados diretamente de produtores regionais
+</div>
+
+<!-- HEADER -->
+
+<header class="sticky top-0 z-50 bg-white border-b border-stone-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+```
+<div class="h-20 flex items-center justify-between gap-6">
+
+  <!-- LOGO -->
+  <a href="#" class="flex items-center gap-3 shrink-0">
+    <div class="w-11 h-11 rounded-full bg-ceara-500 flex items-center justify-center text-white text-2xl">
+      🌵
+    </div>
+
+    <div>
+      <div class="font-black text-xl leading-none text-sertão">Sabores</div>
+      <div class="font-bold text-ceara-600 tracking-wider text-sm">DO CEARÁ</div>
+    </div>
+  </a>
+
+  <!-- BUSCA -->
+  <div class="hidden md:flex flex-1 max-w-xl">
+    <div class="relative w-full">
+      <input
+        id="search"
+        type="text"
+        placeholder="O que você está procurando?"
+        class="w-full rounded-full border border-stone-300 bg-stone-50 py-3 pl-5 pr-12 outline-none focus:border-ceara-500 focus:ring-2 focus:ring-ceara-100"
+        onkeyup="searchProducts()"
+      >
+      <span class="absolute right-4 top-3 text-xl">🔎</span>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold">
+    <a href="#inicio" class="hover:text-ceara-600">Início</a>
+    <a href="#categorias" class="hover:text-ceara-600">Categorias</a>
+    <a href="#produtos" class="hover:text-ceara-600">Produtos</a>
+    <a href="#sobre" class="hover:text-ceara-600">Sobre nós</a>
+  </nav>
+
+  <!-- CARRINHO -->
+  <button onclick="openCart()" class="relative text-2xl hover:text-ceara-600">
+    🛒
+    <span
+      id="cartCount"
+      class="absolute -top-2 -right-3 bg-ceara-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center"
+    >0</span>
+  </button>
+
+</div>
+```
+
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section id="inicio" class="hero-pattern">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+
+```
+<div class="max-w-2xl text-white">
+
+  <span class="inline-block bg-white/15 border border-white/20 rounded-full px-4 py-2 text-sm font-semibold mb-6">
+    🇧🇷 Do Ceará para o Brasil
+  </span>
+
+  <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
+    O verdadeiro sabor do Ceará na sua casa.
+  </h1>
+
+  <p class="text-lg sm:text-xl text-white/90 mb-8 max-w-xl">
+    Castanhas, rapaduras, doces, cajuína e muito mais.
+    Selecionamos sabores que carregam a história e a cultura do nosso Ceará.
+  </p>
+
+  <div class="flex flex-wrap gap-4">
+    <a
+      href="#produtos"
+      class="bg-ceara-500 hover:bg-ceara-600 text-white font-bold px-7 py-4 rounded-full transition"
+    >
+      Comprar agora →
+    </a>
+
+    <a
+      href="#categorias"
+      class="bg-white text-sertao hover:bg-stone-100 font-bold px-7 py-4 rounded-full transition"
+    >
+      Explorar categorias
+    </a>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- CATEGORIAS -->
+
+<section id="categorias" class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+```
+<div class="text-center mb-10">
+  <span class="text-ceara-600 font-bold uppercase text-sm tracking-widest">
+    Explore
+  </span>
+
+  <h2 class="text-3xl sm:text-4xl font-black mt-2">
+    Sabores para todos os gostos
+  </h2>
+
+  <p class="text-stone-500 mt-3">
+    Escolha uma categoria e descubra produtos feitos com a cara do Ceará.
+  </p>
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+
+  <a href="#produtos" class="category-card bg-orange-50 hover:bg-orange-100 rounded-2xl p-5 text-center transition">
+    <div class="text-4xl mb-3">🌰</div>
+    <div class="font-bold text-sm">Castanhas</div>
+  </a>
+
+  <a href="#produtos" class="category-card bg-yellow-50 hover:bg-yellow-100 rounded-2xl p-5 text-center transition">
+    <div class="text-4xl mb-3">🍬</div>
+    <div class="font-bold text-sm">Rapaduras</div>
+  </a>
+
+  <a href="#produtos" class="category-card bg-red-50 hover:bg-red-100 rounded-2xl p-5 text-center transition">
+    <div class="text-4xl mb-3">🥤</div>
+    <div class="font-bold text-sm">Cajuína</div>
+  </a>
+
+  <a href="#produtos" class="category-card bg-amber-50 hover:bg-amber-100 rounded-2xl p-5 text-center transition">
+    <div class="text-4xl mb-3">🥜</div>
+    <div class="font-bold text-sm">Paçocas</div>
+  </a>
+
+  <a href="#produtos" class="category-card bg-green-50 hover:bg-green-100 rounded-2xl p-5 text-center transition">
+    <div class="text-4xl mb-3">🧀</div>
+    <div class="font-bold text-sm">Queijos</div>
+  </a>
+
+  <a href="#produtos" class="category-card bg-yellow-50 hover:bg-yellow-100 rounded-2xl p-5 text-center transition">
+    <div class="text-4xl mb-3">🧈</div>
+    <div class="font-bold text-sm">Manteiga</div>
+  </a>
+
+  <a href="#produtos" class="category-card bg-orange-50 hover:bg-orange-100 rounded-2xl p-5 text-center transition">
+    <div class="text-4xl mb-3">🫓</div>
+    <div class="font-bold text-sm">Tapiocas</div>
+  </a>
+
+  <a href="#produtos" class="category-card bg-pink-50 hover:bg-pink-100 rounded-2xl p-5 text-center transition">
+    <div class="text-4xl mb-3">🎁</div>
+    <div class="font-bold text-sm">Kits Ceará</div>
+  </a>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+
+<section id="produtos" class="py-16 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+```
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+
+  <div>
+    <span class="text-ceara-600 font-bold uppercase text-sm tracking-widest">
+      Mais vendidos
+    </span>
+
+    <h2 class="text-3xl sm:text-4xl font-black mt-2">
+      Sabores que fazem sucesso
+    </h2>
+  </div>
+
+  <button
+    onclick="showAllProducts()"
+    class="text-ceara-600 font-bold hover:text-ceara-800"
+  >
+    Ver todos →
+  </button>
+
+</div>
+
+
+<div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+  <!-- PRODUTO 1 -->
+  <article class="product-card bg-white rounded-2xl overflow-hidden border border-stone-200" data-name="castanha de caju torrada">
+
+    <div class="relative">
+      <img
+        src="https://images.unsplash.com/photo-1608797178974-15b35a64ede9?auto=format&fit=crop&w=800&q=80"
+        alt="Castanha de caju"
+        class="w-full h-64 object-cover"
+      >
+
+      <span class="absolute top-4 left-4 bg-ceara-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+        MAIS VENDIDO
+      </span>
+    </div>
+
+    <div class="p-5">
+
+      <p class="text-xs uppercase tracking-wider text-stone-400 font-bold">
+        Castanhas
+      </p>
+
+      <h3 class="font-bold text-lg mt-1">
+        Castanha de Caju Torrada 500g
+      </h3>
+
+      <div class="text-yellow-500 text-sm mt-2">
+        ★★★★★ <span class="text-stone-400">(128)</span>
+      </div>
+
+      <div class="flex items-center justify-between mt-5">
+        <div>
+          <span class="text-2xl font-black text-sertao">
+            R$ 32,90
+          </span>
+        </div>
+
+        <button
+          onclick="addToCart('Castanha de Caju Torrada 500g', 32.90)"
+          class="bg-sertao hover:bg-green-800 text-white rounded-full px-4 py-2 font-bold text-sm"
+        >
+          + Carrinho
+        </button>
+      </div>
+
+    </div>
+  </article>
+
+
+  <!-- PRODUTO 2 -->
+  <article class="product-card bg-white rounded-2xl overflow-hidden border border-stone-200" data-name="rapadura tradicional">
+
+    <div class="relative">
+      <img
+        src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80"
+        alt="Rapadura"
+        class="w-full h-64 object-cover"
+      >
+
+      <span class="absolute top-4 left-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+        REGIONAL
+      </span>
+    </div>
+
+    <div class="p-5">
+
+      <p class="text-xs uppercase tracking-wider text-stone-400 font-bold">
+        Doces
+      </p>
+
+      <h3 class="font-bold text-lg mt-1">
+        Rapadura Tradicional 500g
+      </h3>
+
+      <div class="text-yellow-500 text-sm mt-2">
+        ★★★★★ <span class="text-stone-400">(96)</span>
+      </div>
+
+      <div class="flex items-center justify-between mt-5">
+        <span class="text-2xl font-black text-sertao">
+          R$ 14,90
+        </span>
+
+        <button
+          onclick="addToCart('Rapadura Tradicional 500g', 14.90)"
+          class="bg-sertão hover:bg-green-800 text-white rounded-full px-4 py-2 font-bold text-sm"
+        >
+          + Carrinho
+        </button>
+      </div>
+
+    </div>
+  </article>
+
+
+  <!-- PRODUTO 3 -->
+  <article class="product-card bg-white rounded-2xl overflow-hidden border border-stone-200" data-name="cajuína cearense">
+
+    <div class="relative">
+      <img
+        src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=800&q=80"
+        alt="Cajuína"
+        class="w-full h-64 object-cover"
+      >
+    </div>
+
+    <div class="p-5">
+
+      <p class="text-xs uppercase tracking-wider text-stone-400 font-bold">
+        Bebidas
+      </p>
+
+      <h3 class="font-bold text-lg mt-1">
+        Cajuína Cearense 1L
+      </h3>
+
+      <div class="text-yellow-500 text-sm mt-2">
+        ★★★★★ <span class="text-stone-400">(74)</span>
+      </div>
+
+      <div class="flex items-center justify-between mt-5">
+        <span class="text-2xl font-black text-sertão">
+          R$ 9,90
+        </span>
+
+        <button
+          onclick="addToCart('Cajuína Cearense 1L', 9.90)"
+          class="bg-sertao hover:bg-green-800 text-white rounded-full px-4 py-2 font-bold text-sm"
+        >
+          + Carrinho
+        </button>
+      </div>
+
+    </div>
+  </article>
+
+
+  <!-- PRODUTO 4 -->
+  <article class="product-card bg-white rounded-2xl overflow-hidden border border-stone-200" data-name="kit sabores do ceará">
+
+    <div class="relative">
+      <img
+        src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+        alt="Kit de produtos regionais"
+        class="w-full h-64 object-cover"
+      >
+
+      <span class="absolute top-4 left-4 bg-sertao text-white text-xs font-bold px-3 py-1 rounded-full">
+        PRESENTE
+      </span>
+    </div>
+
+    <div class="p-5">
+
+      <p class="text-xs uppercase tracking-wider text-stone-400 font-bold">
+        Kits
+      </p>
+
+      <h3 class="font-bold text-lg mt-1">
+        Kit Sabores do Ceará
+      </h3>
+
+      <div class="text-yellow-500 text-sm mt-2">
+        ★★★★★ <span class="text-stone-400">(51)</span>
+      </div>
+
+      <div class="flex items-center justify-between mt-5">
+        <span class="text-2xl font-black text-sertao">
+          R$ 79,90
+        </span>
+
+        <button
+          onclick="addToCart('Kit Sabores do Ceará', 79.90)"
+          class="bg-sertao hover:bg-green-800 text-white rounded-full px-4 py-2 font-bold text-sm"
+        >
+          + Carrinho
+        </button>
+      </div>
+
+    </div>
+  </article>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- BANNER -->
+
+<section class="py-16 bg-ceara-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+```
+<div class="bg-sertao rounded-3xl overflow-hidden">
+  <div class="grid lg:grid-cols-2">
+
+    <div class="p-10 lg:p-16 text-white">
+
+      <span class="text-ceara-300 font-bold uppercase tracking-widest text-sm">
+        Presenteie com sabor
+      </span>
+
+      <h2 class="text-3xl lg:text-4xl font-black mt-3">
+        Monte seu próprio Kit Ceará
+      </h2>
+
+      <p class="text-white/80 mt-4 max-w-lg">
+        Combine castanhas, doces, cajuína, rapadura e outros produtos
+        para criar um presente especial.
+      </p>
+
+      <button
+        onclick="showKitMessage()"
+        class="mt-7 bg-ceara-500 hover:bg-ceara-600 text-white font-bold px-6 py-3 rounded-full"
+      >
+        Montar meu kit
+      </button>
+
+    </div>
+
+    <div class="min-h-[280px] bg-cover bg-center"
+      style="background-image:url('https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&w=1200&q=80')">
+    </div>
+
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- SOBRE -->
+
+<section id="sobre" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+```
+<div class="grid md:grid-cols-3 gap-10 text-center">
+
+  <div>
+    <div class="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center text-3xl">
+      🌱
+    </div>
+    <h3 class="font-black text-xl mt-4">Produtos selecionados</h3>
+    <p class="text-stone-500 mt-2">
+      Escolhemos produtos que representam a qualidade e a tradição cearense.
+    </p>
+  </div>
+
+  <div>
+    <div class="w-16 h-16 mx-auto rounded-full bg-orange-100 flex items-center justify-center text-3xl">
+      🤝
+    </div>
+    <h3 class="font-black text-xl mt-4">Valorizamos produtores</h3>
+    <p class="text-stone-500 mt-2">
+      Nosso objetivo é aproximar pequenos produtores dos consumidores.
+    </p>
+  </div>
+
+  <div>
+    <div class="w-16 h-16 mx-auto rounded-full bg-yellow-100 flex items-center justify-center text-3xl">
+      ❤️
+    </div>
+    <h3 class="font-black text-xl mt-4">Feito com carinho</h3>
+    <p class="text-stone-500 mt-2">
+      Cada pedido leva um pedacinho da cultura e da história do Ceará.
+    </p>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+
+<section class="bg-ceara-500 py-14">
+  <div class="max-w-3xl mx-auto px-4 text-center text-white">
+
+```
+<h2 class="text-3xl font-black">
+  Receba novidades do Ceará
+</h2>
+
+<p class="mt-3 text-white/90">
+  Promoções, novos produtos e histórias dos nossos produtores.
+</p>
+
+<form
+  class="mt-7 flex flex-col sm:flex-row gap-3"
+  onsubmit="subscribe(event)"
+>
+  <input
+    id="email"
+    type="email"
+    required
+    placeholder="Seu melhor e-mail"
+    class="flex-1 rounded-full px-5 py-3 text-stone-800 outline-none"
+  >
+
+  <button
+    class="bg-sertao hover:bg-green-800 font-bold px-7 py-3 rounded-full"
+  >
+    Quero receber
+  </button>
+</form>
+```
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer class="bg-stone-950 text-stone-300">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+```
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+  <div>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-ceara-500 flex items-center justify-center text-xl">
+        🌵
+      </div>
+      <div>
+        <div class="font-black text-white">Sabores</div>
+        <div class="text-ceara-400 font-bold text-xs">DO CEARÁ</div>
+      </div>
+    </div>
+
+    <p class="mt-5 text-sm leading-6 text-stone-400">
+      Produtos regionais selecionados para levar o melhor do Ceará
+      até você.
+    </p>
+  </div>
+
+  <div>
+    <h3 class="text-white font-bold mb-4">Loja</h3>
+    <ul class="space-y-3 text-sm">
+      <li><a href="#produtos" class="hover:text-white">Produtos</a></li>
+      <li><a href="#categorias" class="hover:text-white">Categorias</a></li>
+      <li><a href="#" class="hover:text-white">Ofertas</a></li>
+      <li><a href="#" class="hover:text-white">Kits presente</a></li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 class="text-white font-bold mb-4">Atendimento</h3>
+    <ul class="space-y-3 text-sm">
+      <li>📱 WhatsApp</li>
+      <li>✉️ contato@saboresdoceara.com</li>
+      <li>🚚 Entregas em todo o Brasil</li>
+      <li>💳 Pagamento seguro</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 class="text-white font-bold mb-4">Redes sociais</h3>
+    <div class="flex gap-3">
+      <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-ceara-500">
+        📷
+      </a>
+      <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-ceara-500">
+        ▶️
+      </a>
+      <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-ceara-500">
+        💬
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="border-t border-stone-800 mt-12 pt-7 text-center text-sm text-stone-500">
+  © 2026 Sabores do Ceará. Todos os direitos reservados.
+</div>
+```
+
+  </div>
+
+</footer>
+
+<!-- MODAL CARRINHO -->
+
+<div
+  id="cartModal"
+  class="hidden fixed inset-0 z-[100] bg-black/50 p-4"
+  onclick="closeCart(event)"
+>
+
+  <div
+    class="bg-white rounded-3xl max-w-lg w-full ml-auto min-h-[80vh] p-6 shadow-2xl"
+    onclick="event.stopPropagation()"
+  >
+
+```
+<div class="flex items-center justify-between border-b pb-5">
+  <h2 class="text-2xl font-black">Seu carrinho</h2>
+
+  <button
+    onclick="closeCart()"
+    class="text-2xl text-stone-400 hover:text-stone-800"
+  >
+    ×
+  </button>
+</div>
+
+<div id="cartItems" class="py-6 space-y-4">
+  <p class="text-stone-500 text-center py-10">
+    Seu carrinho está vazio.
+  </p>
+</div>
+
+<div class="border-t pt-5">
+
+  <div class="flex justify-between text-lg font-bold">
+    <span>Total</span>
+    <span id="cartTotal">R$ 0,00</span>
+  </div>
+
+  <button
+    onclick="checkout()"
+    class="w-full mt-5 bg-sertao hover:bg-green-800 text-white font-bold py-4 rounded-full"
+  >
+    Finalizar compra
+  </button>
+
+</div>
+```
+
+  </div>
+</div>
+
+<script>
+
+  let cart = [];
+
+  function formatPrice(value) {
+    return value.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    });
+  }
+
+  function addToCart(name, price) {
+
+    const existing = cart.find(item => item.name === name);
+
+    if (existing) {
+      existing.quantity++;
+    } else {
+      cart.push({
+        name: name,
+        price: price,
+        quantity: 1
+      });
+    }
+
+    updateCart();
+
+    alert(name + ' foi adicionado ao carrinho!');
+  }
+
+
+  function updateCart() {
+
+    const count = cart.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+
+    document.getElementById('cartCount').textContent = count;
+
+    const container = document.getElementById('cartItems');
+
+    if (cart.length === 0) {
+
+      container.innerHTML = `
+        <p class="text-stone-500 text-center py-10">
+          Seu carrinho está vazio.
+        </p>
+      `;
+
+      document.getElementById('cartTotal').textContent = 'R$ 0,00';
+
+      return;
+    }
+
+    let total = 0;
+
+    container.innerHTML = cart.map((item, index) => {
+
+      total += item.price * item.quantity;
+
+      return `
+        <div class="flex gap-4 items-center border-b pb-4">
+
+          <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
+            🌵
+          </div>
+
+          <div class="flex-1">
+            <h3 class="font-bold text-sm">
+              ${item.name}
+            </h3>
+
+            <p class="text-stone-500 text-sm">
+              ${item.quantity} × ${formatPrice(item.price)}
+            </p>
+          </div>
+
+          <button
+            onclick="removeItem(${index})"
+            class="text-red-500 font-bold"
+          >
+            ×
+          </button>
+
+        </div>
+      `;
+
+    }).join('');
+
+    document.getElementById('cartTotal').textContent =
+      formatPrice(total);
+  }
+
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+
+  function openCart() {
+
+    document.getElementById('cartModal')
+      .classList.remove('hidden');
+
+    updateCart();
+  }
+
+
+  function closeCart(event) {
+
+    if (
+      !event ||
+      event.target.id === 'cartModal'
+    ) {
+      document.getElementById('cartModal')
+        .classList.add('hidden');
+    }
+  }
+
+
+  function checkout() {
+
+    if (cart.length === 0) {
+      alert('Adicione algum produto ao carrinho primeiro.');
+      return;
+    }
+
+    alert(
+      'Checkout demonstrativo. Aqui podemos integrar Pix, cartão, Mercado Pago ou outro meio de pagamento.'
+    );
+  }
+
+
+  function searchProducts() {
+
+    const query = document
+      .getElementById('search')
+      .value
+      .toLowerCase();
+
+    document
+      .querySelectorAll('.product-card')
+      .forEach(card => {
+
+        const name =
+          card.dataset.name.toLowerCase();
+
+        if (name.includes(query)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+
+      });
+  }
+
+
+  function showAllProducts() {
+
+    document
+      .querySelectorAll('.product-card')
+      .forEach(card => {
+        card.style.display = '';
+      });
+
+    document
+      .getElementById('search')
+      .value = '';
+
+    document
+      .getElementById('produtos')
+      .scrollIntoView();
+  }
+
+
+  function showKitMessage() {
+
+    alert(
+      'Ótimo! Podemos criar uma página onde o cliente escolhe os produtos e monta o próprio Kit Ceará.'
+    );
+  }
+
+
+  function subscribe(event) {
+
+    event.preventDefault();
+
+    const email =
+      document.getElementById('email').value;
+
+    alert(
+      'Obrigado! O e-mail ' +
+      email +
+      ' foi cadastrado.'
+    );
+
+    event.target.reset();
+  }
+
+  updateCart();
+
+</script>
+
+</body>
+</html>
+
